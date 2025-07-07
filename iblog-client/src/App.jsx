@@ -1,13 +1,25 @@
+import React from 'react';
+import { AuthProvider, useAuth } from './contexts/AuthContext';
+import Login from './components/Login';
+import Dashboard from './components/Dashboard';
+import './App.css';
 
-import './App.css'
-
-function App() {
+function AppContent() {
+  const { user } = useAuth();
 
   return (
-   <div className="bg-slate-900 min-h-screen flex items-center justify-center">
-      <h1 className="text-4xl font-bold text-white ">Welcome to iBlog</h1>
+    <div className="App">
+      {user ? <Dashboard /> : <Login />}
     </div>
-  )
+  );
 }
 
-export default App
+function App() {
+  return (
+    <AuthProvider>
+      <AppContent />
+    </AuthProvider>
+  );
+}
+
+export default App;
