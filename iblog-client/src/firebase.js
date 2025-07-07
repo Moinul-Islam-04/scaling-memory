@@ -4,12 +4,12 @@ import { getAuth, GoogleAuthProvider } from 'firebase/auth';
 // Your Firebase configuration
 // Environment variables are loaded from .env file
 const firebaseConfig = {
-  apiKey: import.meta.env.VITE_FIREBASE_API_KEY || "AIzaSyBBc5ht0ptfYgPY6883266vlaqetRRJrvw",
-  authDomain: import.meta.env.VITE_FIREBASE_AUTH_DOMAIN || "iblog-2b002.firebaseapp.com",
-  projectId: import.meta.env.VITE_FIREBASE_PROJECT_ID || "iblog-2b002",
-  storageBucket: import.meta.env.VITE_FIREBASE_STORAGE_BUCKET || "iblog-2b002.firebasestorage.app",
-  messagingSenderId: import.meta.env.VITE_FIREBASE_MESSAGING_SENDER_ID || "980135420193",
-  appId: import.meta.env.VITE_FIREBASE_APP_ID || "1:980135420193:web:7720919e893048e5f1de60"
+  apiKey: import.meta.env.VITE_FIREBASE_API_KEY,
+  authDomain: import.meta.env.VITE_FIREBASE_AUTH_DOMAIN,
+  projectId: import.meta.env.VITE_FIREBASE_PROJECT_ID,
+  storageBucket: import.meta.env.VITE_FIREBASE_STORAGE_BUCKET,
+  messagingSenderId: import.meta.env.VITE_FIREBASE_MESSAGING_SENDER_ID,
+  appId: import.meta.env.VITE_FIREBASE_APP_ID
 };
 
 // Debug: Log environment variables (remove in production)
@@ -23,7 +23,7 @@ console.log('Firebase Config:', {
 });
 
 // Check if all required environment variables are present
-const requiredEnvVars = ['AIzaSyBBc5ht0ptfYgPY6883266vlaqetRRJrvw', 'iblog-2b002.firebaseapp.com', 'iblog-2b002', 'iblog-2b002.firebasestorage.app'];
+const requiredEnvVars = ['VITE_FIREBASE_API_KEY', 'VITE_FIREBASE_AUTH_DOMAIN', 'VITE_FIREBASE_PROJECT_ID', 'VITE_FIREBASE_STORAGE_BUCKET', 'VITE_FIREBASE_MESSAGING_SENDER_ID', 'VITE_FIREBASE_APP_ID'];
 const missingEnvVars = requiredEnvVars.filter(varName => !import.meta.env[varName]);
 
 if (missingEnvVars.length > 0) {
